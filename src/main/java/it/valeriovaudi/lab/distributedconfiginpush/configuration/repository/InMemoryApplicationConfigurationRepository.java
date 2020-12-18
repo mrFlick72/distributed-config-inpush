@@ -21,9 +21,7 @@ public class InMemoryApplicationConfigurationRepository implements ApplicationCo
 
     @Override
     public Mono<String> getDataFor(String id) {
-        return Mono.defer(() -> {
-            return Mono.just(storage.get(id));
-        });
+        return Mono.defer(() -> Mono.just(storage.get(id)));
     }
 
     @Override
