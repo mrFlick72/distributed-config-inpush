@@ -1,4 +1,4 @@
-package it.valeriovaudi.lab.distributedconfiginpush.kinesis.events.consumer.waiter;
+package it.valeriovaudi.lab.distributedconfiginpush.configuration.streaming.waiter;
 
 public class Waiter {
 

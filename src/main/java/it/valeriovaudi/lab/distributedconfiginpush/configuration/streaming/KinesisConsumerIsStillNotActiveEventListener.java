@@ -1,6 +1,6 @@
-package it.valeriovaudi.lab.distributedconfiginpush.kinesis.events.consumer.creation;
+package it.valeriovaudi.lab.distributedconfiginpush.configuration.streaming;
 
-import it.valeriovaudi.lab.distributedconfiginpush.kinesis.events.consumer.waiter.Waiter;
+import it.valeriovaudi.lab.distributedconfiginpush.configuration.streaming.waiter.Waiter;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;

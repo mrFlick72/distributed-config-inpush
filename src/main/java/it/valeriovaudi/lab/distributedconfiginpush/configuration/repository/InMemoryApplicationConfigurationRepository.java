@@ -1,13 +1,13 @@
-package it.valeriovaudi.lab.distributedconfiginpush.repository;
+package it.valeriovaudi.lab.distributedconfiginpush.configuration.repository;
 
 
 import java.util.Map;
 
-public class InMemorySampleRepository implements SampleRepository {
+public class InMemoryApplicationConfigurationRepository implements ApplicationConfigurationRepository {
 
     private final Map<String, String> storage;
 
-    public InMemorySampleRepository(Map<String, String> storage) {
+    public InMemoryApplicationConfigurationRepository(Map<String, String> storage) {
         this.storage = storage;
     }
 

@@ -1,4 +1,4 @@
-package it.valeriovaudi.lab.distributedconfiginpush.kinesis.events.consumer.creation;
+package it.valeriovaudi.lab.distributedconfiginpush.configuration.streaming;
 
 import org.springframework.context.ApplicationEvent;
 
