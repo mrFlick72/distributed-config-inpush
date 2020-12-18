@@ -37,7 +37,10 @@ public class KinesisConsumerIsActiveEventListener implements ApplicationListener
                 .subscriber(p -> Flux.just(p)
                         .ofType(SubscribeToShardEvent.class)
                         .flatMapIterable(SubscribeToShardEvent::records)
-                        .subscribe(e -> repository.storeDataFor(e.partitionKey(), e.data().asUtf8String())))
+                        .subscribe(e -> {
+                            System.out.println(e);
+                            repository.storeDataFor(e.partitionKey(), e.data().asUtf8String()).subscribe();
+                        }))
                 .build();
 
         kinesisClient.subscribeToShard(request, subscriber);
