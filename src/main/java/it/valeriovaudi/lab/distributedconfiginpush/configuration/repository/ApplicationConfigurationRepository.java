@@ -1,9 +1,16 @@
 package it.valeriovaudi.lab.distributedconfiginpush.configuration.repository;
 
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+import java.util.Map;
+
 public interface ApplicationConfigurationRepository {
 
-    String getDataFor(String id);
+    Flux<Map.Entry<String, String>> getData();
 
-    String storeDataFor(String id, String content);
+    Mono<String> getDataFor(String id);
+
+    Mono<Void> storeDataFor(String id, String content);
 }
 

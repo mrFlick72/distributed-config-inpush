@@ -1,6 +1,9 @@
 package it.valeriovaudi.lab.distributedconfiginpush.configuration.repository;
 
 
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
 import java.util.Map;
 
 public class InMemoryApplicationConfigurationRepository implements ApplicationConfigurationRepository {
@@ -12,12 +15,22 @@ public class InMemoryApplicationConfigurationRepository implements ApplicationCo
     }
 
     @Override
-    public String getDataFor(String id) {
-        return storage.get(id);
+    public Flux<Map.Entry<String, String>> getData() {
+        return Flux.defer(() -> Flux.fromIterable(storage.entrySet()));
     }
 
     @Override
-    public String storeDataFor(String id, String content) {
-        return storage.put(id, content);
+    public Mono<String> getDataFor(String id) {
+        return Mono.defer(() -> {
+            return Mono.just(storage.get(id));
+        });
+    }
+
+    @Override
+    public Mono<Void> storeDataFor(String id, String content) {
+        return Mono.defer(() -> {
+            storage.put(id, content);
+            return Mono.empty();
+        });
     }
 }
